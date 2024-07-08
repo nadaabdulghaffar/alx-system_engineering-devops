@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# script that track which web server is answering our HTTP requests
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo service nginx start
+HOSTNAME=$(hostname)
+sudo sed -i "/listen 80 default_server/a \        add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+sudo service nginx restart
