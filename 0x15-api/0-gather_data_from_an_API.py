@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 "Script Returns information about Todo list progress of passed id"
 
-import sys
 import json
+import sys
 from urllib.request import urlopen
 
 if __name__ == "__main__":
     args = sys.argv[1]
 
     url_todo = ('https://jsonplaceholder.typicode.com/todos/?userId={}'
-               .format(args))
+                .format(args))
     with urlopen(url_todo) as response:
         body = response.read().decode('UTF-8')
         data = json.loads(body)
