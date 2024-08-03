@@ -36,5 +36,6 @@ if __name__ == "__main__":
     # Print the employee's TODO list progress
     print("Employee {} is done with tasks({}/{}):"
           .format(employee_name, completed_tasks, total_tasks))
+    indentation = "\t "
     for task in tasks_done:
-        print(f"\t {task}")
+        print(f"{indentation}{task}")
