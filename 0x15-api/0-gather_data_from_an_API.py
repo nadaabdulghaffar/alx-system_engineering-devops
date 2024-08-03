@@ -8,8 +8,17 @@ import sys
 from urllib.request import urlopen
 
 if __name__ == "__main__":
-    # Get the employee ID from the arguments
+    if len(sys.argv) != 2:
+        print("Usage: {} employee_id".format(sys.argv[0]))
+        sys.exit(1)
+
     employee_id = sys.argv[1]
+
+    try:
+        int(employee_id)
+    except ValueError:
+        print("Employee ID must be an integer")
+        sys.exit(1)
 
     # Fetch the TODO list for the given employee ID
     url_todo = ('https://jsonplaceholder.typicode.com/todos?userId={}'
