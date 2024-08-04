@@ -2,8 +2,8 @@
 """
 Export API data into JSON file
 """
-import sys
 import json
+import sys
 from urllib.request import urlopen
 
 
